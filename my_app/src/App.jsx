@@ -32,6 +32,26 @@ import Product from './propsComponents/Props03'
 import Counter01 from './propsComponents/StateCount'
 import Counter02 from './propsComponents/StateCount02'
 import Alert from './propsComponents/props06'
+import Exstate01 from './stateComponents/Ex01'
+import Exstate02 from './stateComponents/Ex02'
+import Exstate03 from './stateComponents/Ex03'
+import Exstate04 from './stateComponents/Ex04'
+import Exstate05 from './stateComponents/Ex05'
+import Exstate06 from './stateComponents/Ex06'
+import Exstate07 from './stateComponents/Ex07'
+import Exstate08 from './stateComponents/Ex08'
+import Exstate09 from './stateComponents/Ex09'
+import Exstate10 from './stateComponents/Ex10'
+import Exstate11 from './stateComponents/Ex11'
+import Test from './stateComponents/test'
+import Exstate13 from './stateComponents/Ex13'
+import Exstate14 from './stateComponents/Ex14'
+import Exstate15 from './stateComponents/Ex15'
+import Exstate16 from './stateComponents/Ex16'
+import Exstate17 from './stateComponents/Ex17'
+import Exstate18 from './stateComponents/Ex18'
+import Blog from './stateComponents/blog'
+
 
 // UserCard() 함수 생성하기
 // UserCard()컴포넌트를 App()컴포넌트의 자식으로 사용할 예정
@@ -143,10 +163,29 @@ function App() {
         <Product name = '마우스' price = {15000} /> */}
         {/* <Counter01 /> */}
         {/* <Counter02 /> */}
-        <Alert type='error' msg='오류'/>
+        {/* <Alert type='error' msg='오류'/>
         <Alert type='success' msg='성공'/>
         <Alert type='info' msg='정보'/>
-        <Alert type='warring' msg='위험'/>
+        <Alert type='warring' msg='위험'/> */}
+        {/* <Exstate01 /> */}
+        {/* <Exstate02 /> */}
+        {/* <Exstate03 /> */}
+        {/* <Exstate04 /> */}
+        {/* <Exstate05 /> */}
+        {/* <Exstate06 /> */}
+        {/* <Exstate07 /> */}
+        {/* <Exstate08 /> */}
+        {/* <Exstate09 /> */}
+        {/* <Exstate10 /> */}
+        {/* <Exstate11 /> */}
+        {/* <Test /> */}
+        {/* <Exstate13 /> */}
+        {/* <Exstate14 /> */}
+        {/* <Exstate15 /> */}
+        {/* <Exstate16 /> */}
+        {/* <Exstate17 /> */}
+        {/* <Exstate18 /> */}
+        <Blog />
     </>
   )
 }
