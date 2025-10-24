@@ -6,55 +6,10 @@ import viteLogo from '/vite.svg'
 import './App.css'
 // 이미지를 하나하나 import 해서 개별로 가져올수 있다.
 // public 폴더의 이미지 파일은 import하지 않아도 사용가능하다.
-import image01 from '../public/images/image01.png'
-import Ex01 from './components/Ex01';
-import Ex02 from './components/Ex02';
-import Ex03 from './components/Ex03';
-import Ex04 from './components/Ex04';
-import Ex05 from './components/Ex05';
-import Ex06 from './components/Ex06';
-import Ex07 from './components/Ex07';
-import Ex08 from './components/Ex08';
-import Ex09 from './components/Ex09';
-import Ex10 from './components/Ex10';
-import Ex11 from './components/Ex11';
-import Ex12 from './components/Ex12';
-import Ex13 from './components/Ex13';
-// Child를 import해서 App에 넣으면 안나옴
-import Child from './propsComponents/child'
-import Parent from './propsComponents/Parent'
-import Parent02 from './propsComponents/welcome'
-import Parent03 from './propsComponents/profile'
-import Parent04 from './propsComponents/prEx'
-import Welcome from './propsComponents/Props01'
-import UserCard02 from './propsComponents/Props02'
-import Product from './propsComponents/Props03'
-import Counter01 from './propsComponents/StateCount'
-import Counter02 from './propsComponents/StateCount02'
-import Alert from './propsComponents/props06'
-import Exstate01 from './stateComponents/Ex01'
-import Exstate02 from './stateComponents/Ex02'
-import Exstate03 from './stateComponents/Ex03'
-import Exstate04 from './stateComponents/Ex04'
-import Exstate05 from './stateComponents/Ex05'
-import Exstate06 from './stateComponents/Ex06'
-import Exstate07 from './stateComponents/Ex07'
-import Exstate08 from './stateComponents/Ex08'
-import Exstate09 from './stateComponents/Ex09'
-import Exstate10 from './stateComponents/Ex10'
-import Exstate11 from './stateComponents/Ex11'
-import Test from './stateComponents/test'
-import Exstate13 from './stateComponents/Ex13'
-import Exstate14 from './stateComponents/Ex14'
-import Exstate15 from './stateComponents/Ex15'
-import Exstate16 from './stateComponents/Ex16'
-import Exstate17 from './stateComponents/Ex17'
-import Exstate18 from './stateComponents/Ex18'
+import Parent from './stateUI/uitest04'
 import Blog from './stateComponents/blog'
-import MovieReview from './stateComponents/MovieReview'
-import ShoppingList from './stateComponents/ShoppingList'
-import CommentBoard from './stateComponents/CommentBoard'
-import ScoreManager from './stateComponents/student'
+import AuthApp from './stateUI/member/AuthApp'
+import MovieApp from './stateUI/movie/movieApp'
 
 
 // UserCard() 함수 생성하기
@@ -193,7 +148,13 @@ function App() {
         {/* <MovieReview /> */}
         {/* <ShoppingList /> */}
         {/* <CommentBoard /> */}
-        <ScoreManager />
+        {/* <ScoreManager /> */}
+        {/* <ModalChange /> */}
+        {/* <LoginView /> */}
+        {/* <PromptChange/> */}
+        {/* <Parent /> */}
+        {/* <AuthApp /> */}
+        <MovieApp />
     </>
   )
 }
