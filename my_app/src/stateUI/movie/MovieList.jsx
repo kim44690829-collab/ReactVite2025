@@ -1,15 +1,15 @@
 import { useState } from "react";
 import MovieModal from "./MovieModal";
-// // import MovieItem from "./MovieItem";
 
 export default function MovieList(props){
-    const [modalOpen, setModalOpen] = useState(false)
+    const [modalOpen, setModalOpen] = useState(false);
+    const [selectedItem, setSelectedItem] = useState(null);
     return(
         <>
             {props.movie.map((item,index) => (
-                <div key={index}>
-                    <span>{item.name}</span><button onClick={props.open}>상세보기</button>
-                    {modalOpen && <MovieModal close = {setModalOpen(false)} movieList = {item.name[index]} reviewList = {item.comment[index]} />}
+                <div key={item.id}>
+                    <span>{item.name}</span><button onClick={() => {setModalOpen(true); setSelectedItem(item);}}>상세보기</button>
+                    {modalOpen && selectedItem && selectedItem.id === item.id && (<MovieModal close = {() => setModalOpen(false)} movieList = {selectedItem.name} reviewList = {selectedItem.comment} />)}
                 </div>
             ))}
         </>

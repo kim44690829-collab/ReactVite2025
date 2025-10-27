@@ -6,7 +6,7 @@ export default function MovieModal(props){
             <div>
                 <h2>{props.movieList}</h2>
                 <p>{props.reviewList}</p>
-                <button>닫기</button>
+                <button onClick = {props.close}>닫기</button>
             </div>
         </>
     )
