@@ -6,10 +6,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 // 이미지를 하나하나 import 해서 개별로 가져올수 있다.
 // public 폴더의 이미지 파일은 import하지 않아도 사용가능하다.
-import Blogc from './stateComponents/Blog/blogc'
-import NewMovie from './stateUI/NewMovie/MovieApp'
-import ShopApp from './stateUI/shop/ShopApp'
-import FoodApp from './stateUI/food/FoodApp'
+import TableOrderApp from './stateUI/TableOrder/TableOrderApp'
 
 
 // UserCard() 함수 생성하기
@@ -158,7 +155,16 @@ function App() {
         {/* <Blogc /> */}
         {/* <NewMovie /> */}
         {/* <ShopApp /> */}
-        <FoodApp />
+        {/* <FoodApp /> */}
+        {/* <Hover01 /> */}
+        {/* <Hover02 /> */}
+        {/* <Hover03 /> */}
+        {/* <Hover04 /> */}
+        {/* <ChangeImg01 /> */}
+        {/* <ChangeImg02 /> */}
+        {/* <ChangeImg03 /> */}
+        {/* <ChangeImg04 /> */}
+        <TableOrderApp />
     </>
   )
 }

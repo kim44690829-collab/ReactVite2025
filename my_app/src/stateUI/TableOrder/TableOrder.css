@@ -1,0 +1,100 @@
+body{
+    background-color: #8D7B68;
+}
+.order_container{
+    display: flex;
+    border: none;
+    width: 843px;
+    height: 525px;
+    margin: 0 auto;
+    background-color: #C8B6A6;
+    position: relative;
+}
+.order_container .menuList{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 10px 10px;
+    border: 2px solid #F1DEC9;
+    flex:1;
+}
+.order_container .menuList button{
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 0;
+    background-color: #8D7B68;
+    color: #F1DEC9;
+    font-size: 14px;
+}
+.order_container .menuList span{
+    font-size: 50px;
+    margin: 20px 10px 30px 0;
+    color: #504233;
+}
+.order_container .menuList .list{
+    margin-top: 40px;
+}
+.order_container .section_order{
+  padding: 10px 0 20px 0;
+  flex: 6;
+  border: 1px solid #F1DEC9;
+  background-color: #F1DEC9;
+  overflow: hidden;
+  height: 525px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  /* 스크롤 관련 속성 */
+  max-height: 525px; /* 원하는 높이 제한 */
+  overflow-y: auto; /* 세로 스크롤 자동 생성 */
+  padding-right: 5px; /* 스크롤 때문에 글자 잘리지 않도록 여백 */
+  overflow-y: auto; /* 세로 스크롤 허용 */
+  overflow-x: hidden; /* 가로 스크롤 차단 */
+  padding-right: 8px; /* 스크롤과 텍스트 겹치지 않도록 여백 */
+  box-sizing: border-box;
+
+}
+/* 스크롤바 스타일 (선택) */
+.order_container .section_order::-webkit-scrollbar {
+  width: 6px;
+}
+.order_container .section_order::-webkit-scrollbar-thumb {
+  background: #504233;
+  border-radius: 3px;
+}
+.order_container .section_order .foodAll{
+  width: 727px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 0 0 0 20px;
+}
+.order_container .section_order .food{
+  width: 200px;
+  height: 230px;
+}
+.order_container .section_order .food p{
+  margin: 10px;
+  font-size: 13px;
+  text-align: right;
+  color: #504233;
+}
+.order_container .section_order .food .cartBtn{
+  width: 200px;
+  padding: 10px;
+  border:1px solid #504233;
+  outline: none;
+}
+.order_container .section_order .food .cartBtn:hover{
+  background-color: #504233;
+  color:#F1DEC9;
+  border: 1px solid #F1DEC9;
+}
+.order_container .section_order .food img{
+  width: 200px;
+  height: 130px;
+  border-radius: 5px;
+}
