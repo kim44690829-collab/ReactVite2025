@@ -6,7 +6,7 @@ import OrderModal from '../TableOrder/OrderModal';
 
 export default function TableOrderApp(){
     // 주문 목록 전체
-    const tabelProduct = [
+    const tableProduct = [
 
         {id:1, name: '새치고기고기', img:'square_1.jpg', price:7500, category:1},
         {id:2, name: '돈까스도련님 고기고기', img:'square_2.jpg', price:7000, category:1},
@@ -68,21 +68,71 @@ export default function TableOrderApp(){
     // 현재 선택한 카테고리 번호 state
     const [selectCate,setSelectCate] = useState(1);
 
+    const [total, setTotal] = useState(0);
+
     // 로직 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
     // filter를 이용한 카테고리 변경
-    const food = tabelProduct.filter((item) => item.category === selectCate)
+    const food = tableProduct.filter((item) => item.category === selectCate)
 
     // 담기 버튼 클릭시 장바구니에 담기
-    const addList = (tabelProduct) => {
+    const addList = (tableProduct) => {
         const cartCopy = [...cart]
-        let index = cart.findIndex((item) => item.id === tabelProduct.id)
+        let index = cart.findIndex((item) => item.id === tableProduct.id)
         if(index !== -1){
             cartCopy[index].quantity += 1;
+            // setTotal(total + cartCopy[index].price)
         }else{
-            cartCopy.push({id:tabelProduct.id, name:tabelProduct.name, price:tabelProduct.price, quantity:1})
+            cartCopy.push({id:tableProduct.id, name:tableProduct.name, price:tableProduct.price, quantity:1})
+            // setTotal(total + cartCopy.price)
         }
         setCart(cartCopy);
+        
     }
+    // +버튼 클릭시 1 증가 (10제한)
+    const plusBtn = (tableProduct) => {
+        const cartCopy = [...cart]
+        let index = cart.findIndex((item) => item.id === tableProduct.id)
+        if(cartCopy[index].quantity < 10){
+            cartCopy[index].quantity += 1;
+            // setTotal(total + cartCopy[index].price)
+        }
+        setCart(cartCopy);
+        
+    }
+    // -버튼 클릭시 1감소 (1제한)
+    const minusBtn = (tableProduct) => {
+        const cartCopy = [...cart]
+        let index = cart.findIndex((item) => item.id === tableProduct.id)
+        if(cartCopy[index].quantity > 1){
+            cartCopy[index].quantity -= 1;
+            // setTotal(total - cartCopy[index].price)
+        }
+        setCart(cartCopy);
+        
+    }
+    // x버튼 클릭시 제품 삭제
+    const delBtn = (tableProduct) => {
+        const cartCopy = [...cart]
+        let index = cart.findIndex((item) => item.id === tableProduct.id)
+        cartCopy.splice(index,1)
+        setCart(cartCopy);
+        // setTotal(total - cartCopy[index].price)
+    }
+    // 총 가격
+    // const priceTotal = () => {
+    //     const cartCopy = [...cart]
+    //     for(let i = 0; i < cartCopy.length; i++){
+           
+    //     }
+    // }
+
+    const onClose2 = () => {
+        const cartCopy = [...cart]
+        cartCopy.length === 0? alert('주문 내역이 없습니다.') : setModalOpen(false);
+        setCart([]);
+    }
+    
+
 
     return(
         <div className="order_container">
@@ -124,12 +174,33 @@ export default function TableOrderApp(){
                     }}>
                     스낵/음료
                 </button>
-                <button type="button" className="list">주문 내역</button>
+                <button type="button" className="list" 
+                onClick={() => setModalOpen(true)}
+                style={{
+                    backgroundColor:modalOpen ? '#F1DEC9' : '#8D7B68', 
+                    color: modalOpen ? '#504233' : '#F1DEC9',
+                    outline:'none', border:'none'
+                }}
+                >
+                    주문 내역
+                </button>
             </div>
             <div className="section_order">
                 <OrderList food = {food} addList = {addList}/>
-                <OrderModal cart = {cart} />
             </div>
+            {modalOpen && 
+            <OrderModal 
+            cart = {cart} 
+            plusBtn = {plusBtn} 
+            minusBtn = {minusBtn} 
+            delBtn = {delBtn} 
+            // priceTotal = {priceTotal}
+            onClose1 = {() => setModalOpen(false)}
+            onClose2 = {onClose2}
+            total = {total}
+            setTotal = {setTotal}
+            /> 
+            }
         </div>
     )
 }

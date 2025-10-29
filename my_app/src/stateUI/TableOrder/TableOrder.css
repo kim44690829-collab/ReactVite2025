@@ -53,7 +53,6 @@ body{
   overflow-x: hidden; /* 가로 스크롤 차단 */
   padding-right: 8px; /* 스크롤과 텍스트 겹치지 않도록 여백 */
   box-sizing: border-box;
-
 }
 /* 스크롤바 스타일 (선택) */
 .order_container .section_order::-webkit-scrollbar {
@@ -85,7 +84,9 @@ body{
 .order_container .section_order .food .cartBtn{
   width: 200px;
   padding: 10px;
-  border:1px solid #504233;
+  border:1px solid #14100c;
+  background-color: #8D7B68;
+  color: #F1DEC9;
   outline: none;
 }
 .order_container .section_order .food .cartBtn:hover{
@@ -97,4 +98,159 @@ body{
   width: 200px;
   height: 130px;
   border-radius: 5px;
+}
+.order_container .overlay{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 843px;
+  height: 525px;
+  background-color: rgba(0,0,0,0.3);
+}
+.order_container .overlay .modal{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 525px;
+  background-color: #504233;
+  color: #F1DEC9;
+}
+
+
+.order_container .overlay .modal .modal_top{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid #F1DEC9;
+}
+.order_container .overlay .modal .modal_top > span{
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+  margin: 10px 0 0 10px;
+  border: 1px solid #F1DEC9;
+  border-radius: 50px;
+}
+.order_container .overlay .modal .modal_top > button{
+  background-color: transparent;
+  color: #F1DEC9;
+  width: 20px;
+  height: 20px;
+  margin: 33px 20px 0 0;
+  border: none;
+  outline: none;
+}
+.order_container .overlay .modal .modal_top > button:hover{
+  border: 1px solid #fff;
+  color: #fff;
+}
+.order_container .overlay .modal > p{
+  height: 320px;
+  line-height: 320px;
+  padding: 0 10px 10px 10px;
+  /* border-bottom: 1px solid #F1DEC9; */
+  margin-left: 10px;
+}
+.order_container .overlay .modal .cartList{
+  padding: 0 10px 10px 10px;
+  height: 320px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  /* 스크롤 관련 속성 */
+  /* 원하는 높이 제한 */
+  max-height: 525px;
+  /* 세로 스크롤 자동 생성 */
+  overflow-y: auto;  
+  /* 스크롤 때문에 글자 잘리지 않도록 여백 */ 
+  padding-right: 5px;
+  /* 세로 스크롤 허용 */ 
+  overflow-y: auto; 
+  /* 가로 스크롤 차단 */
+  overflow-x: hidden; 
+  /* 스크롤과 텍스트 겹치지 않도록 여백 */
+  padding-right: 0; 
+  box-sizing: border-box;
+}
+/* 스크롤바 스타일 (선택) */
+.order_container .overlay .modal .cartList::-webkit-scrollbar {
+  width: 0;
+}
+.order_container .overlay .modal .cartList::-webkit-scrollbar-thumb {
+  background: #504233;
+  border-radius: 3px;
+}
+
+.order_container .overlay .modal .cartList .foodEach{
+  border-bottom: 1px solid #F1DEC9;
+  padding: 0 10px 10px 10px;
+}
+.order_container .overlay .modal .cartList .foodName{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.order_container .overlay .modal .cartList .foodName > button{
+  background-color: transparent;
+  color: #F1DEC9;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+}
+.order_container .overlay .modal .cartList .foodInfo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order_container .overlay .modal .cartList .foodInfo button{
+  padding: 5px;
+  background-color: transparent;
+  color: #F1DEC9;
+  border: 1px solid #F1DEC9;
+  outline: none;
+}
+.order_container .overlay .modal .cartList .foodInfo .foodQuantity > span{
+  padding: 10px;
+  font-weight: bold;
+}
+.order_container .overlay .modal .cartList .foodInfo .foodPrice{
+  margin-right: 5px;
+}
+.order_container .overlay .modal .cartList .foodInfo .foodPrice .bold{
+  font-weight: bold;
+}
+.order_container .overlay .modal .totalPrice{
+  padding: 10px 10px 10px 10px;
+  border-top: 1px solid #F1DEC9;
+}
+.order_container .overlay .modal .totalPrice p{
+  text-align: left;
+}
+.order_container .overlay .modal .totalPrice span{
+  display: block;
+  padding: 20px 20px 0 20px;
+  text-align: right;
+}
+.order_container .overlay .modal .order{
+  padding: 0 10px 10px 10px;
+}
+.order_container .overlay .modal .order .complete{
+  padding: 10px;
+  background-color: #F1DEC9;
+  color: #504233;
+  border: 1px solid #504233;
+  outline: none;
+}
+.order_container .overlay .modal .order .complete:hover{
+  background-color: #2c2824;
+  color: #F1DEC9;
+  border: 1px solid #F1DEC9;
 }
