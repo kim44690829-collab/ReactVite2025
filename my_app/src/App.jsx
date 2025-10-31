@@ -6,7 +6,9 @@ import viteLogo from '/vite.svg'
 import './App.css'
 // 이미지를 하나하나 import 해서 개별로 가져올수 있다.
 // public 폴더의 이미지 파일은 import하지 않아도 사용가능하다.
-import Ex11 from './Effect/Ex11'
+import ExJ05 from './JSON/ExJ05'
+import ProductApp from './JSON/ExJ06/productApp'
+import ExJ07 from './JSON/ExJ07'
 
 
 // UserCard() 함수 생성하기
@@ -173,7 +175,8 @@ function App() {
         {/* <Eff08 /> */}
         {/* <Eff09 /> */}
         {/* <Ex01 /> */}
-        <Ex11 />
+        {/* <Ex11 /> */}
+        <ExJ07 />
     </>
   )
 }
