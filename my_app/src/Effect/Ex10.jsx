@@ -30,7 +30,7 @@ export default function Ex10(){
         // filter
         // const ResultFilter = users.filter((user) => {user.name.toLocaleLowerCase().includes(text.toLocaleLowerCase()); user.email.toLocaleLowerCase().includes(text.toLocaleLowerCase()); })
         const ResultFilter = 
-        users.filter((user) => user.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())) || 
+        users.filter((user) => user.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())) ||
         users.filter((user) => user.email.toLocaleLowerCase().includes(text.toLocaleLowerCase()))
         setFilterList(ResultFilter);
     }, [text])

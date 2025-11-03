@@ -1,14 +1,24 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'; 
 // src -> assets -> 이미지 파일은 반드시 import 해야한다.
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
 // import 외부파일을 가져온다.
-import './App.css'
+import './App.css';
 // 이미지를 하나하나 import 해서 개별로 가져올수 있다.
 // public 폴더의 이미지 파일은 import하지 않아도 사용가능하다.
-import ExJ05 from './JSON/ExJ05'
-import ProductApp from './JSON/ExJ06/productApp'
+// import Ex09 from './Effect/Ex09'
 import ExJ07 from './JSON/ExJ07'
+import Home from './Pages/Home'
+import About from './Pages/About'
+import ProdApp from './Pages/ProdApp';
+import ProDetail from './Pages/ProDetail';
+import FakeStore from './Pages/Fake/FakeStore';
+import FakeStoreDetail from './Pages/Fake/FakeStoreDetail';
+import useProduct from './Pages/Fake/data';
+import useRecipe from './Pages/Recipes/RecipeData';
+import RecipeList from './Pages/Recipes/RecipeList';
+import RecipeDetail from './Pages/Recipes/RecipeDetail';
 
 
 // UserCard() 함수 생성하기
@@ -39,18 +49,19 @@ function App() {
   // 리액트는 반드시 return() 안에서 실행할 HTML 문서를 작성한다.
   // true, false는 논리값이다. 문자가 아님
   // true === 1, false === 0
-  const name = '홍길동';
-  const isLoggin = true;
-  const fruits = ['사과','오렌지','바나나']
-  const user = {name:'김철수',age:25,email:'kim@naver.com'}
-  const clickBtn = () => {
-    console.log('버튼을 클릭했습니다.')
-  }
-  const products = [
-    {id:1,name:"노트북",price:1200000},
-    {id:2,name:"마우스",price:30000},
-    {id:3,name:"키보드",price:80000}
-  ]
+  // const name = '홍길동';
+  // const isLoggin = true;
+  // const fruits = ['사과','오렌지','바나나']
+  // const user = {name:'김철수',age:25,email:'kim@naver.com'}
+  // const clickBtn = () => {
+  //   console.log('버튼을 클릭했습니다.')
+  // }
+  // const products = [
+  //   {id:1,name:"노트북",price:1200000},
+  //   {id:2,name:"마우스",price:30000},
+  //   {id:3,name:"키보드",price:80000}
+  // ]
+  const recipe = useRecipe();
   return (
     // <></> 프래그먼트 
     // 리액트는 HTML작성시 반드시 부모태그가 하나만 존재해야 하므로 비어있는 태그를 사용하도록 허용한 기술이다.
@@ -175,8 +186,14 @@ function App() {
         {/* <Eff08 /> */}
         {/* <Eff09 /> */}
         {/* <Ex01 /> */}
-        {/* <Ex11 /> */}
-        <ExJ07 />
+        {/* <Ex09 /> */}
+        {/* <ExJ07 /> */}
+        {/* 커스텀 훅이든 이미 존재하는 훅이든 JSX안으로 가져올 수 없다. */}
+        <Routes>
+          <Route path = '/' element = {<RecipeList recipe = {recipe} />} />
+          {/* <Route path = 'detail/:id/:title/:price/:description/:category/:image/:rating' element = {<FakeStoreDetail />} /> */}
+          <Route path = 'detail/:id/' element = {<RecipeDetail recipe = {recipe} />} />
+        </Routes>
     </>
   )
 }

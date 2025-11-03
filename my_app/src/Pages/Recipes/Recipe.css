@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #016B61;
+}
+.container{
+    background-color: #9ECFD4;
+    border-radius: 10px;
+}
+
+.container h1{
+    padding: 30px;
+    color: #016B61;
+}
+.container .btn{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+.container .btn button{
+    background-color: #E5E9C5;
+    color: #016B61;
+    outline: none;
+    border: none;
+}
+.container .btn button:hover{
+    background-color: #152b17;
+    color: #E5E9C5;
+}
+.foodList{
+    overflow: hidden;
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 80px;
+    /* 주문 상품을 너무 많이 담았을 때 스크롤바 생성 css */
+    /* flex-direction: column; */
+    gap: 30px;
+
+    /* 스크롤 관련 속성 */
+    max-height: 700px; /* 원하는 높이 제한 */
+    /* overflow-y: auto; */
+    /* 세로 스크롤 자동 생성 */
+    padding-right: 5px; /* 스크롤 때문에 글자 잘리지 않도록 여백 */
+    overflow-y: auto; /* 세로 스크롤 허용 */
+    overflow-x: hidden; /* 가로 스크롤 차단 */
+    padding-right: 8px; /* 스크롤과 텍스트 겹치지 않도록 여백 */
+    box-sizing: border-box;
+}
+/* 스크롤바 스타일 (선택) */
+.foodList::-webkit-scrollbar {
+  width: 0px;
+}
+.foodList::-webkit-scrollbar-thumb {
+  background: #152b17;
+  border-radius: 0px;
+}
+.foodList > li{
+    margin: 20px;
+    height: 270px;
+}
+.foodList > li .foodEach{
+    padding: 10px;
+    height: 320px;
+}
+.foodList > li .foodEach:hover{
+    transform: scale(1.1);
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+.foodList > li img{
+    border-radius: 10px;
+    margin-bottom: 5px;
+    width: 150px;
+    height: 150px;
+}
+.foodList > li p{
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.foodInfo h1{
+    margin-bottom: 20px;
+    color: #E5E9C5;
+    font-weight: normal;
+}
+.foodInfo h2{
+    margin-bottom: 20px;
+    color: #E5E9C5;
+}
+.foodInfo img{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+.foodInfo p{
+    margin-bottom: 10px;
+    color: #E5E9C5;
+}
+.foodInfo .linkBtn{
+    border: 1px solid #9ECFD4;
+    padding: 10px;
+    background-color: #9ECFD4;
+    border-radius: 10px;
+    color: #152b17;
+    outline: none;
+}
+.foodInfo .linkBtn:hover{
+    background-color: #152b17;
+    color: #E5E9C5;
+}
+.instructions{
+    background-color: #9ECFD4;
+    margin: 20px;
+    padding: 15px;
+}
+.instructions li{
+    color: #152b17;
+    margin-top: 10px;
+}
