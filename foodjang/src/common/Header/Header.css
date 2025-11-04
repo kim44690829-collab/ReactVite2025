@@ -1,0 +1,66 @@
+.header_container{
+    padding: 20px;
+    border-bottom: 1px solid #DFD0B8;
+    background-color: #222831;
+    width: 1300px;
+}
+.header_container .header_top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.header_container .header_top .bookMark{
+    background-color: #DFD0B8;
+    color: #222831;
+    border: none;
+    outline: none;
+}
+.header_container .header_top .top_right .right{
+    margin-right: 20px;
+    color: #DFD0B8;
+}
+.header_container .header_top .top_right .right:hover{
+    color: #ecb865;
+}
+.header_center{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+    position: relative;
+    align-items: center;
+}
+.header_center input{
+    width: 250px;
+    height: 30px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background-color: #d6d6d6;
+    padding: 5px 5px 5px 20px;
+}
+.header_center button{
+    position: absolute;
+    height: 30px;
+    width: 10px;
+    right: 13px;
+    bottom: 33px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.header_center img{
+    margin-right: 320px;
+}
+.header_btm{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 30px;
+    color: #DFD0B8;
+}
+.header_btm .menu{
+    color: #DFD0B8;
+}
+.header_btm .menu:hover{
+    color: #ecb865;
+}

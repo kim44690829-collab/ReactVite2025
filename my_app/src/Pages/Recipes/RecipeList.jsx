@@ -6,13 +6,9 @@ export default function RecipeList({recipe}){
     const [recipes, setRecipes] = useState(true)
     const [rate, setRate] = useState(true)
     const [recipeCuisine, setRecipeCuisine] = useState('Italian')
-    const [like, setLike] = useState(0);
+    
 
     const recipeFilter = recipe.filter((item) => item.cuisine === recipeCuisine)
-
-    const likeBtn = () => {
-        setLike(like + 1)
-    }
 
     const clickHandler = (num) => {
         if(num === 1){
@@ -57,6 +53,39 @@ export default function RecipeList({recipe}){
     const recipeCopy = [...rateFilter];
     const recipeRate = recipeCopy.sort((a,b) => b.rating - a.rating)
 
+    // 좋아요 출력할 방향
+    // like = {1:0,2:0.3:0....}
+    // id 음식명  좋아요
+    // 1  된장찌개  0
+    // 2  김치찌개  0
+    // 3  피자      0
+    // json 자체 데이터가 오브젝트이기때문에 useState(0)으로 주면 안됨 -> 하나의 항목만 좋아요가 0이 되기때문에
+    // like 상태변수
+    
+    // 오브젝트에 0을 초기화하는 초기값 변수
+    const defaultLike = {} // 빈 배열 또는 빈 오브젝트 => undefined 될 가능성이 높음
+
+    if(recipe.length > 0 ){
+        for(let i = 0; i < recipe.length; i++){
+            const recip = recipe[i]
+            // defaultLike[1] = 0 
+            // {id: 1 , 좋아요 : 0}
+            defaultLike[recip.id] = 0; // 각 레시피 id별로 초기값 0으로 셋팅
+        }
+    }
+    
+    // 좋아요 버튼 클릭시 좋아요 1씩 증가하는 핸들러
+    const likeBtn = (id) => {
+        // 배열이나 오브젝트는 힙의 어드레스 번지 주소가 같으면 리 랜더링을 하지 않음. -> 얕은복사
+        const likeCopy = {...like}
+        // 현재 undefined인 상태기때문에 undefined+1 을 한 것이되어 NaN이 나옴
+
+        likeCopy[id] = (likeCopy[id] !== undefined ? likeCopy[id] : 0) + 1
+        setLike(likeCopy)
+    }
+
+    const [like, setLike] = useState(defaultLike);
+
     return(
         <div className="container">
             <h1>레시피 목록</h1>
@@ -94,9 +123,9 @@ export default function RecipeList({recipe}){
                                 <p>평점 : {item.rating}</p>
                                 <button type="button" 
                                 style={{border:'none', outline:'none'}}
-                                onClick={() => likeBtn()}
+                                onClick={() => likeBtn(item.id)}
                                 >
-                                    ❤ 좋아요 {like}
+                                    ❤ 좋아요 {like[item.id]}
                                 </button>
                         </div>
                     </li>

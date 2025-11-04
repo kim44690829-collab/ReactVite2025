@@ -1,0 +1,25 @@
+.sec_2{
+    width: 1300px;
+    background-color: #222831;
+    height: 980px;
+}
+.sec_2 h1{
+    padding: 50px;
+    font-size: 50px;
+    color: #DFD0B8;
+}
+.sec_2 p{
+    color: #DFD0B8;
+    margin-bottom: 40px;
+    font-size: 30px;
+}
+.sec_2 img{
+    width: 300px;
+    height: 300px;
+}
+.btn1{
+    color: #fff;
+}
+.btn1:hover{
+    color: #9b712e;
+}
