@@ -13,6 +13,7 @@ import MealCuisine from './pages/Meals/MealCuisine'
 import MealPrice from './pages/Meals/MealPrice'
 import MealProductAll from './pages/Meals/MealProductAll'
 import MealDetail from './pages/Meals/MealDetail'
+import LoginForm from './common/Login/LoginForm'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/price' element={<MealPrice food = {food} />} />
           <Route path='/country' element={<MealCuisine food = {food} />} />
           <Route path='/detail/:id/' element={<MealDetail food = {food} />} />
+          <Route path='/login' element={<LoginForm />} />
         </Routes>
         <Footer />
       </BrowserRouter>

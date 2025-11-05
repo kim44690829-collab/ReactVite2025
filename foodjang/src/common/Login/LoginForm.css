@@ -1,0 +1,108 @@
+.loginForm{
+    width: 1300px;
+    height: 980px;
+    background-color: #222831;
+}
+.loginForm .login{
+    width: 600px;
+    height: 550px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.loginForm .login h2{
+    text-align: left;
+    color: #DFD0B8;
+    margin-bottom: 20px;
+}
+.loginForm .login > div{
+    padding: 50px;
+    border: 1px solid #DFD0B8;
+}
+.loginForm .login h3{
+    text-align: left;
+    color: #DFD0B8;
+    margin: 0 0 20px 10px;
+}
+.loginForm form{
+    display: flex;
+    align-items: center;
+}
+.loginForm form .formInput{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 10px;
+    gap: 10px;
+}
+.loginForm form .formInput input{
+    padding: 10px;
+    outline: none;
+}
+.loginForm form button{
+    width: 100px;
+    height: 90px;
+    background-color: #DFD0B8;
+    color: #222831;
+    outline: none;
+    border: none;
+    border-radius: 0;
+}
+.loginForm form button:hover{
+    background-color: #ecb865;
+    color: black;
+}
+.loginForm .login .store{
+    color: #DFD0B8;
+    text-align: left;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.loginForm .login .store label{
+    margin-left: 5px;
+}
+.loginFormBtn1{
+    width: 488px;
+    margin: 20px 0 20px 10px; 
+    border-radius: 0;
+    background-color: #ecb865;
+    border: none;
+    color: #222831;
+}
+.loginFormBtn2{
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}
+.loginFormBtn2-1{
+    width: 150px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 0;
+    background-color: #DFD0B8;
+    color: #222831;
+}
+.nonMember{
+    width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.nonMember h2{
+    text-align: left;
+    color: #DFD0B8;
+    margin-bottom: 20px;
+}
+.loginForm .nonMember > div{
+    padding: 50px;
+    border: 1px solid #DFD0B8;
+}
+.loginForm .nonMember h3{
+    text-align: left;
+    color: #DFD0B8;
+    margin: 0 0 20px 10px;
+}
+.loginForm .nonMember p{
+    color: #DFD0B8;
+    font-size: 13px;
+    margin-left: -27px;
+}
