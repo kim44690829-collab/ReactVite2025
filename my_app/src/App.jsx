@@ -19,6 +19,7 @@ import useProduct from './Pages/Fake/data';
 import useRecipe from './Pages/Recipes/RecipeData';
 import RecipeList from './Pages/Recipes/RecipeList';
 import RecipeDetail from './Pages/Recipes/RecipeDetail';
+import TableOrderApp from './stateUI/TableOrder/TableOrderApp';
 
 
 // UserCard() 함수 생성하기
@@ -177,7 +178,7 @@ function App() {
         {/* <ChangeImg02 /> */}
         {/* <ChangeImg03 /> */}
         {/* <ChangeImg04 /> */}
-        {/* <TableOrderApp /> */}
+        <TableOrderApp />
         {/* <Eff01 /> */}
         {/* <Eff02 /> */}
         {/* <Eff03 /> */}
@@ -189,11 +190,11 @@ function App() {
         {/* <Ex09 /> */}
         {/* <ExJ07 /> */}
         {/* 커스텀 훅이든 이미 존재하는 훅이든 JSX안으로 가져올 수 없다. */}
-        <Routes>
-          <Route path = '/' element = {<RecipeList recipe = {recipe} />} />
+        {/* <Routes>
+          <Route path = '/' element = {<RecipeList recipe = {recipe} />} /> */}
           {/* <Route path = 'detail/:id/:title/:price/:description/:category/:image/:rating' element = {<FakeStoreDetail />} /> */}
-          <Route path = 'detail/:id/' element = {<RecipeDetail recipe = {recipe} />} />
-        </Routes>
+          {/* <Route path = 'detail/:id/' element = {<RecipeDetail recipe = {recipe} />} />
+        </Routes> */}
     </>
   )
 }

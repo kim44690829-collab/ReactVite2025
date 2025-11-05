@@ -1,4 +1,11 @@
+import { useEffect } from "react"
+
 export default function OrderModal(props){
+    // useEffect(() => {
+    //     props.cart.map((item,index) => (
+    //         console.log(index)
+    //     ))
+    // },[props.delBtn])
     return(
         <>
             <div className="overlay">
@@ -9,7 +16,7 @@ export default function OrderModal(props){
                     </div>
                     {props.cart.length === 0 ? <p>장바구니가 비어있습니다.</p> : 
                         <div className="cartList">
-                            {props.cart.map((item) => (
+                            {props.cart.map((item, index) => (
                                 <div key={item.id} className="foodEach">
                                     <div className="foodName">
                                         <span>{item.name}</span>
@@ -31,7 +38,7 @@ export default function OrderModal(props){
                     }
                     <div className="totalPrice">
                         <p>총 가격</p>
-                        <span>{props.total}원</span>
+                        <span>{props.totalPrice}원</span>
                     </div>
                     <div className="order">
                         <button type="button" className="complete" onClick={props.onClose2}>주문 완료</button>

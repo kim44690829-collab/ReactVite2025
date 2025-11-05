@@ -11,13 +11,13 @@ export default function CartModal(props){
                     <h2>장바구니</h2>
                     {props.cart.length === 0 ? <p>비어있습니다.</p> : 
                         <ul>
-                            {props.cart.map((item) => (
+                            {props.cart.map((item, index) => (
                                 <li className="li2" key={item.id}>
                                     <span>{item.name}</span> 
-                                    <button type="button" className="btn3" onClick={() => props.minusBtn(item)}>-</button>
+                                    <button type="button" className="btn3" onClick={() => props.minusBtn(index)}>-</button>
                                     {item.quantity}
-                                    <button type="button" className="btn3" onClick={() => props.plusBtn(item)}>+</button>
-                                    <button type="button" className="btn3" onClick={() => props.delBtn(item)}>X</button>
+                                    <button type="button" className="btn3" onClick={() => props.plusBtn(index)}>+</button>
+                                    <button type="button" className="btn3" onClick={() => props.delBtn(index)}>X</button>
                                 </li>
                             ))}
                         </ul>

@@ -3,6 +3,7 @@ import '../TableOrder/TableOrder.css'
 import '../TableOrder/reset.css';
 import OrderList from '../TableOrder/OrderList';
 import OrderModal from '../TableOrder/OrderModal';
+import { useEffect } from "react";
 
 export default function TableOrderApp(){
     // 주문 목록 전체
@@ -68,7 +69,7 @@ export default function TableOrderApp(){
     // 현재 선택한 카테고리 번호 state
     const [selectCate,setSelectCate] = useState(1);
 
-    const [total, setTotal] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     // 로직 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
     // filter를 이용한 카테고리 변경
@@ -86,18 +87,19 @@ export default function TableOrderApp(){
             // setTotal(total + cartCopy.price)
         }
         setCart(cartCopy);
-        
+        // priceTotal();
     }
     // +버튼 클릭시 1 증가 (10제한)
     const plusBtn = (tableProduct) => {
         const cartCopy = [...cart]
         let index = cart.findIndex((item) => item.id === tableProduct.id)
         if(cartCopy[index].quantity < 10){
+            console.log(cartCopy[index].quantity)
             cartCopy[index].quantity += 1;
             // setTotal(total + cartCopy[index].price)
         }
         setCart(cartCopy);
-        
+        // priceTotal();
     }
     // -버튼 클릭시 1감소 (1제한)
     const minusBtn = (tableProduct) => {
@@ -108,21 +110,40 @@ export default function TableOrderApp(){
             // setTotal(total - cartCopy[index].price)
         }
         setCart(cartCopy);
-        
+        // priceTotal();
     }
     // x버튼 클릭시 제품 삭제
     const delBtn = (tableProduct) => {
         const cartCopy = [...cart]
         let index = cart.findIndex((item) => item.id === tableProduct.id)
+        console.log('index', index)
         cartCopy.splice(index,1)
         setCart(cartCopy);
         // setTotal(total - cartCopy[index].price)
+        // priceTotal();
     }
     // 총 가격
+    useEffect(() => {
+        let total = 0;
+        for(let i = 0; i < cart.length; i++){
+            total += cart[i].price * cart[i].quantity
+        }
+        setTotalPrice(total)
+    },[cart])
+    // const cartCopy = [...cart]
+    // setCart(cartCopy)
     // const priceTotal = () => {
+    //     let total = 0
     //     const cartCopy = [...cart]
     //     for(let i = 0; i < cartCopy.length; i++){
-           
+    //         total += cartCopy[i].price * cartCopy[i].quantity
+    //         setTotal(total)
+    //     }
+    // }
+    // const priceTotalMinus = () => {
+    //     const cartCopy = [...cart]
+    //     for(let i = 0; i < cartCopy.length; i++){
+    //         setTotal(total - cartCopy[i].price)
     //     }
     // }
 
@@ -130,6 +151,7 @@ export default function TableOrderApp(){
         const cartCopy = [...cart]
         cartCopy.length === 0? alert('주문 내역이 없습니다.') : setModalOpen(false);
         setCart([]);
+        setTotal(0);
     }
     
 
@@ -197,8 +219,7 @@ export default function TableOrderApp(){
             // priceTotal = {priceTotal}
             onClose1 = {() => setModalOpen(false)}
             onClose2 = {onClose2}
-            total = {total}
-            setTotal = {setTotal}
+            totalPrice = {totalPrice}
             /> 
             }
         </div>
