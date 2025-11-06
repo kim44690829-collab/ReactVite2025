@@ -51,6 +51,7 @@
 }
 .header_center img{
     margin-right: 320px;
+    border: 5px solid #ecb865;
 }
 .header_btm{
     display: flex;

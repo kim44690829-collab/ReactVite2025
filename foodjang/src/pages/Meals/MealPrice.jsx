@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import '../Meals/MealProductAll.css'
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { wishListContext1 } from "../../WishListContext";
 
 export default function MealPrice({food}){
+    const {isWishList, wishListAdd, wishListRemove} = useContext(wishListContext1);
     const [price, setPrice] = useState(true)
-    const [btnName, setBtnName] = useState('가격 높은 순')
+    const [btnName, setBtnName] = useState('가격 낮은 순')
 
     const priceFilter1 = food.filter((item) => item.prepTimeMinutes > 0)
     const priceCopy1 = [...priceFilter1]
@@ -39,6 +41,10 @@ export default function MealPrice({food}){
                             <p>가격 : {item.prepTimeMinutes}$</p>
                             <span>평점 : {item.rating}</span>
                             <span>리뷰 : {item.reviewCount}</span>
+                            <button type="button" className="wishBtn" 
+                                onClick={() => isWishList(item.id) ? wishListRemove(item.id) : wishListAdd(item)} style={{backgroundColor: isWishList(item.id)? '#ecb865' : 'tomato'}}>
+                                    {isWishList(item.id)? '🧡' : '🤍'}
+                                </button>
                         </div>
                     </li>
                 ))}
@@ -55,6 +61,10 @@ export default function MealPrice({food}){
                             <p>가격 : {item.prepTimeMinutes}$</p>
                             <span>평점 : {item.rating}</span>
                             <span>리뷰 : {item.reviewCount}</span>
+                            <button type="button" className="wishBtn" 
+                                onClick={() => isWishList(item.id) ? wishListRemove(item.id) : wishListAdd(item)} style={{backgroundColor: isWishList(item.id)? '#ecb865' : 'tomato'}}>
+                                    {isWishList(item.id)? '🧡' : '🤍'}
+                                </button>
                         </div>
                     </li>
                 ))}

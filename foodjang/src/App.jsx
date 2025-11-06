@@ -14,6 +14,8 @@ import MealPrice from './pages/Meals/MealPrice'
 import MealProductAll from './pages/Meals/MealProductAll'
 import MealDetail from './pages/Meals/MealDetail'
 import LoginForm from './common/Login/LoginForm'
+import Wishlist from './pages/Wishlist/Wishlist'
+import WishListProvider from './WishListContext'
 
 function App() {
 
@@ -22,6 +24,7 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
+        <WishListProvider>
         <Routes>
           <Route path='/' element={<Home food = {food} />} />
           <Route path='/productall' element={<MealProductAll food = {food} />} />
@@ -31,7 +34,9 @@ function App() {
           <Route path='/country' element={<MealCuisine food = {food} />} />
           <Route path='/detail/:id/' element={<MealDetail food = {food} />} />
           <Route path='/login' element={<LoginForm />} />
+          <Route path='/wishlist' element={<Wishlist />} />
         </Routes>
+        </WishListProvider>
         <Footer />
       </BrowserRouter>
     </>

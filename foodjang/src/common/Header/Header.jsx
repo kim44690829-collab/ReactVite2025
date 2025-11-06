@@ -15,7 +15,7 @@ export default function Header(){
                 <div className="top_right">
                     <Link to='/login' className="right">로그인</Link>
                     <Link to='/signup' className="right">회원가입</Link>
-                    <Link to='/service' className="right">고객센터</Link>
+                    <Link to='/wishlist' className="right">찜 목록</Link>
                     <Link to='/cart' className="right">🛒</Link>
                 </div>
             </div>

@@ -13,13 +13,23 @@
     margin-bottom: 40px;
     font-size: 30px;
 }
+.sec_2 .foodDetail{
+    position: relative;
+}
 .sec_2 img{
     width: 300px;
     height: 300px;
+    border-radius: 10px;
 }
 .btn1{
     color: #fff;
 }
 .btn1:hover{
     color: #9b712e;
+}
+.wishBtn{
+    position: absolute;
+    left: 500px;
+    bottom: 50px;
+    border-radius: 10px;
 }

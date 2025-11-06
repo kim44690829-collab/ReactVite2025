@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { wishListContext1 } from "../../WishListContext";
 import '../Meals/MealProductAll.css'
 
 export default function MealReview({food}){
+    const {isWishList, wishListAdd, wishListRemove} = useContext(wishListContext1);
 
-    const reviewFilter = food.filter((item) => item.reviewCount > 0)
-    const reviewCopy = [...reviewFilter]
+    const reviewCopy = [...food]
     const reviewSort = reviewCopy.sort((a,b) => b.reviewCount - a.reviewCount)
 
     return(
@@ -22,6 +24,10 @@ export default function MealReview({food}){
                             <p>가격 : {item.prepTimeMinutes}$</p>
                             <span>평점 : {item.rating}</span>
                             <span>리뷰 : {item.reviewCount}</span>
+                            <button type="button" className="wishBtn" 
+                                onClick={() => isWishList(item.id) ? wishListRemove(item.id) : wishListAdd(item)} style={{backgroundColor: isWishList(item.id)? '#ecb865' : 'tomato'}}>
+                                    {isWishList(item.id)? '🧡' : '🤍'}
+                                </button>
                         </div>
                     </li>
                 ))}
