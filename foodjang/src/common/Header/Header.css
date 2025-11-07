@@ -18,9 +18,26 @@
 .header_container .header_top .top_right .right{
     margin-right: 20px;
     color: #DFD0B8;
+    display: inline-block;
 }
 .header_container .header_top .top_right .right:hover{
     color: #ecb865;
+    transition: 0.3s;
+}
+.header_container .header_top .top_right .right1{
+    margin-right: 20px;
+    color: #DFD0B8;
+    display: inline-block;
+}
+.header_container .header_top .top_right .right1 .logoutBtn{
+    margin-left: 10px;
+    background-color: transparent;
+    color: #DFD0B8;
+}
+.header_container .header_top .top_right .right1 .logoutBtn:hover{
+    color: #ecb865;
+    border: 1px solid #ecb865;
+    transition: 0.3s;
 }
 .header_center{
     width: 100%;

@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 
 // 찜한 목록 출력
 export default function WishListPage2(){
-    const {wishlist, removeFromWishlist} = useContext(wishlistContext)
+    const {wishlist, removeFromWishlist, itemClear} = useContext(wishlistContext)
 
     return(
         <div style={{padding:'20px'}}>
             <h2>찜한 상품 목록</h2>
             {/* 찜한 상품이 없음 : 찜한 상품이 없습니다- 메시지 */}
+            <button type="button" onClick={itemClear}>전체 삭제</button>
             {wishlist.length === 0 ?
                 <p>찜한 상품이 없습니다.</p> : (
                     <ul>

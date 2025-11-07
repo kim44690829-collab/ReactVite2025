@@ -16,15 +16,18 @@ import MealDetail from './pages/Meals/MealDetail'
 import LoginForm from './common/Login/LoginForm'
 import Wishlist from './pages/Wishlist/Wishlist'
 import WishListProvider from './WishListContext'
+import LoginProvider from './LoginContext'
+import SignupForm from './pages/SignUp/SignupForm'
 
 function App() {
 
   const food = useProduct();
   return (
     <>
+    <LoginProvider>
       <BrowserRouter>
-        <Header />
         <WishListProvider>
+        <Header />
         <Routes>
           <Route path='/' element={<Home food = {food} />} />
           <Route path='/productall' element={<MealProductAll food = {food} />} />
@@ -35,10 +38,12 @@ function App() {
           <Route path='/detail/:id/' element={<MealDetail food = {food} />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/wishlist' element={<Wishlist />} />
+          <Route path='/signup' element={<SignupForm />} />
         </Routes>
         </WishListProvider>
         <Footer />
       </BrowserRouter>
+      </LoginProvider>
     </>
   )
 }

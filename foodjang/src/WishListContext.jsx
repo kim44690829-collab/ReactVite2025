@@ -4,7 +4,25 @@ export const wishListContext1 = createContext();
 
 export default function WishListProvider({children}){
     // 찜목록을 담을 상태변수
-    const [wishList, setWishList] = useState([])
+    const [wishList, setWishList] = useState(() => {
+        const saved = localStorage.getItem('wishList')
+        return saved ? JSON.parse(saved) : [];
+    })
+
+    // const [wishList, setWishList] = useState([])
+
+    // useEffect(() => {
+    //     const saved = localStorage.getItem('wishList')
+
+    //     if(saved){
+    //         setWishList(JSON.parse(saved))
+    //     }
+    // },[])
+
+    useEffect(() => {
+        localStorage.setItem('wishList', JSON.stringify(wishList))
+    },[wishList])
+    
 
     // 찜버튼을 누르면 목록에 추가되는 함수
     const wishListAdd = (product) => {
@@ -30,8 +48,13 @@ export default function WishListProvider({children}){
         }
     }
 
+    const allDel = () => {
+        setWishList([])
+        localStorage.removeItem('wishList')
+    }
+
     return(
-        <wishListContext1.Provider value={{wishList, wishListAdd, wishListRemove, isWishList}}>
+        <wishListContext1.Provider value={{wishList, wishListAdd, wishListRemove, isWishList, allDel}}>
             {children}
         </wishListContext1.Provider>
     )

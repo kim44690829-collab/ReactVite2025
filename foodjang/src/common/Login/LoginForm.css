@@ -23,22 +23,22 @@
     color: #DFD0B8;
     margin: 0 0 20px 10px;
 }
-.loginForm form{
+.loginForm .formDiv{
     display: flex;
     align-items: center;
 }
-.loginForm form .formInput{
+.loginForm .formDiv .formInput{
     display: flex;
     flex-direction: column;
     width: 500px;
     padding: 10px;
     gap: 10px;
 }
-.loginForm form .formInput input{
+.loginForm .formDiv .formInput input{
     padding: 10px;
     outline: none;
 }
-.loginForm form button{
+.loginForm .formDiv button{
     width: 100px;
     height: 90px;
     background-color: #DFD0B8;
@@ -47,9 +47,10 @@
     border: none;
     border-radius: 0;
 }
-.loginForm form button:hover{
+.loginForm .formDiv button:hover{
     background-color: #ecb865;
     color: black;
+    transition: 0.3s;
 }
 .loginForm .login .store{
     color: #DFD0B8;

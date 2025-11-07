@@ -1,10 +1,15 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import '../Header/Header.css'
+import { loginContext } from "../../LoginContext";
+import { useState, useContext } from "react"
 
 export default function Header(){
+    const {user, logout} = useContext(loginContext)
     const bookMark = () => {
         alert('Ctrl+D 키를 눌러 즐겨찾기에 등록하실 수 있습니다.')
+    }
+    const logoutHandeler = () => {
+        logout();
     }
     return(
         <div className="header_container">
@@ -13,9 +18,17 @@ export default function Header(){
                     <button type="button" className="bookMark" onClick={bookMark}>+BOOKMARK</button>
                 </div>
                 <div className="top_right">
-                    <Link to='/login' className="right">로그인</Link>
+                    {user ?
+                    <div className="right1">
+                        <span>환영합니다, {user}님</span> 
+                        <button type="button" onClick={logoutHandeler} className="logoutBtn">로그아웃</button> 
+                    </div>
+                        :
+                        <Link to='/login' className="right">로그인</Link>
+                    }
                     <Link to='/signup' className="right">회원가입</Link>
-                    <Link to='/wishlist' className="right">찜 목록</Link>
+                    <Link to='/wishlist' className="right">찜 목록</Link> :
+                    
                     <Link to='/cart' className="right">🛒</Link>
                 </div>
             </div>

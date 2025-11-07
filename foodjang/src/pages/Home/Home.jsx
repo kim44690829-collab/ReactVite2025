@@ -3,8 +3,9 @@ import { useState, useEffect, useContext } from "react";
 import { wishListContext1 } from "../../WishListContext";
 import { Link } from "react-router-dom";
 
+
 export default function Home({food}){
-    const {isWishList, wishListAdd, wishListRemove} = useContext(wishListContext1);
+    const { isWishList, wishListAdd, wishListRemove} = useContext(wishListContext1);
 
     // 베스트
     const foodFilter = food.filter((item) => item.rating > 0)

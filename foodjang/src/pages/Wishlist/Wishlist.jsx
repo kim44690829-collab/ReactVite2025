@@ -4,23 +4,14 @@ import { wishListContext1 } from "../../WishListContext";
 import '../Wishlist/wishlist.css'
 
 export default function Wishlist(){
-    const { wishList, wishListRemove, isWishList } = useContext(wishListContext1)
+    const { wishList, wishListRemove, isWishList, allDel } = useContext(wishListContext1)
     return(
         <div className="wishList">
             <h2>찜 리스트</h2>
+            <button type="button" onClick={allDel} className="allDel">리스트 전체 삭제</button>
             {wishList.length === 0 ? <p className="list_p">목록이 비었습니다.</p> : (
             <ul>
                 {wishList.map((item) => (
-                    // <li key={item.id}>
-                    //     <Link to={`/detail/${item.id}`}>
-                    //         <img src={item.image} />
-                    //         <p>{item.name}</p> 
-                    //     </Link>
-                    //     <p>{item.prepTimeMinutes}$</p>
-                    //     <button type="button" onClick={() => wishListRemove(item.id)}>
-                    //         {isWishList(item.id)? '🧡' : '🤍'}
-                    //     </button>
-                    // </li>
                     <li key={item.id}>
                         <div className="foodEach">
                             <Link to={`/detail/${item.id}`}>

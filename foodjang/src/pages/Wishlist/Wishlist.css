@@ -32,6 +32,18 @@
     color: #DFD0B8;
     font-size: 30px;
 }
+.wishList .allDel{
+    width: 200px;
+    margin: 0 auto;
+    background-color: #DFD0B8;
+    color: #222831;
+    outline: none;
+}
+.wishList .allDel:hover{
+    background-color: #ecb865;
+    border: 1px solid #ecb865;
+    color: black;
+}
 .wishList .list_p{
     width: 1300px;
     height: 980px;

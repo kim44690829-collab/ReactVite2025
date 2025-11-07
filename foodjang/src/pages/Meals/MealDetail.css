@@ -22,10 +22,14 @@
     border-radius: 10px;
 }
 .btn1{
-    color: #fff;
+    background-color: #DFD0B8;
+    color: #222831;
 }
 .btn1:hover{
-    color: #9b712e;
+    transition: 0.3s;
+    background-color: transparent;
+    color: #DFD0B8;
+    border: 1px solid #DFD0B8;
 }
 .wishBtn{
     position: absolute;

@@ -1,0 +1,33 @@
+.overlay{
+    position: fixed;
+    /* position: relative; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
+.modal .addressFind{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    width: 700px;
+    height: 500px;
+    background-color: #fff;
+    border: 1px solid black;
+}
+input[type='text']{
+    padding: 10px;
+    vertical-align: middle;
+    background-color: #DFD0B8;
+    border: none;
+    outline: none;
+}
+.addInput{
+    display: inline-block;
+}
+.addBtn{
+    margin-left: 30px;
+    background-color: #DFD0B8;
+    color: #222831;
+}

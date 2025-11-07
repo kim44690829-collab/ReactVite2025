@@ -2,11 +2,11 @@ import { useState, createContext } from "react";
 
 export const loginContext = createContext();
 
-export default function loginProvider({children}){
+export default function LoginProvider({children}){
     const [user, setUser] = useState(null)
 
-    const login = () => {
-        setUser()
+    const login = (userName) => {
+        setUser(userName)
     }
 
     const logout = () => {

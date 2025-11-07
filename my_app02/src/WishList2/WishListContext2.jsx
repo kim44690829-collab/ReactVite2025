@@ -1,7 +1,7 @@
 // createContext => 공유데이터를 저장하는 저장소를 생성하는 함수 -> 반드시 import
 import { createContext } from "react";
 // 상태 변수
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // context 생성 : wishlistContext
 // Context 생성한 후 내보내야 함 -> 반드시 export
@@ -12,7 +12,27 @@ export const wishlistContext = createContext();
 export default function WishlistProvider({children}){
     // 찜한 항목을 저장하는 상태변수 정의
     // 초기값 = 빈배열
-    const  [wishlist, setWishlist] = useState([])
+    const  [wishlist, setWishlist] = useState(() => {
+        const saved = localStorage.getItem('wishlist');
+        // 저장된 찜목록이 있으면 복원, 없으면 빈 배열
+        return saved ? JSON.parse(saved) : []
+    })
+
+    // 1) LocalStorage에서 불러오기
+    //    useEffect 이용해서 사용 -> 의존성 빈 배열 사용 -> 최초 랜더링시 1번만 불러옴
+    // useEffect(() => {
+    //     const saved = localStorage.getItem('wishlist')
+    //     // useEffect에서는 return은 cleanUp함수이기 때문에 if를 사용
+    //     if(saved){
+    //         // 상태 갱신
+    //         setWishlist(JSON.parse(saved))
+    //     }
+    // },[])
+
+    // 2) wishlist가 바뀔때마다 LocalStorage에 저장
+    useEffect(() => {
+        localStorage.setItem('wishlist', JSON.stringify(wishlist))
+    },[wishlist])
 
     // 찜한 상품을 추가하는 함수 생성
     const addToWishlist = (product) => {
@@ -50,9 +70,15 @@ export default function WishlistProvider({children}){
         }
     }
 
+    // LocalStorage 전체 삭제
+    const itemClear = () => {
+        setWishlist([])
+        localStorage.removeItem('wishlist')
+    }
+
     // Provider 생성
     return(
-        <wishlistContext.Provider value={{wishlist, addToWishlist, removeFromWishlist, isInWishlist}}>
+        <wishlistContext.Provider value={{wishlist, addToWishlist, removeFromWishlist, isInWishlist, itemClear}}>
             {/* children : wishlistContext의 하위 컴포넌트 전부 */}
             {children}
         </wishlistContext.Provider>
